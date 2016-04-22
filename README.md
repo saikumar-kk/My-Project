@@ -1,4 +1,4 @@
-FITINFINITE APP
+FitInfinite App
 ===============
 
 
@@ -32,11 +32,11 @@ The FitInfinite Admin portal has the following prerequisites. The following pack
 5. Ansible 2.x.x.x
 
 
-#### Application packages installed in vagrant
+#### Application packages installed in vagrant VM's
 1. Nodejs 5.10.1
 2. Postgres 9.5.x
 
-#### JAVA Script additional packages installed in vagrant (should be in dependency section package.json)
+#### JAVA Script additional packages installed in vagrant (should be in dependency section of package.json)
 1. express 4.13.4
 2. epress-session 1.13.0
 3. passport 0.3.2
