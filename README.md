@@ -121,5 +121,6 @@ postgres=# grant all on database fitinfinite to fitadmin;
 postgres=# \q
 $ exit
 ```
+5. Content updated
 
 
