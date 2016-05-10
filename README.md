@@ -73,6 +73,7 @@ $ sudo apt-get install vagrant
 
 
 2. As root, create a Base Box using vagrant
+
 ```
 $ vagrant box add fitinfinite-dev /path/to/the/new.box
 [...]
@@ -83,6 +84,7 @@ $ vagrant up
 
 3. Install Software in the newly created VM box by using ansible (vagrant provisioner)
    (Update vagrant configuration file for ansible setup and provisioning)
+
 ```
 $ vagrant provisioning
 [...]
@@ -100,13 +102,15 @@ $cd /vagrant/fitinfinite_app
 ```
 
 
-2. Install dependency java script libraries by using package manager (should be in package.json)
+3. Install dependency java script libraries by using package manager (should be in package.json)
+
 ```
 $ npm install 
 
 ```
 
-3. Checkout the source
+4. Checkout the source
+
 ```
 $ cd /vagrant/fitinfinite_app
 $ git init
@@ -176,13 +180,11 @@ Steps for run mocha
 --------------------------------
 
 1. Go to project root
-
 ```
 $ cd /vagrant/fitinfinite_app/
 ```
 
 2. Run all test cases and extract results to file
-
 ```
 $ mocha --recursive > fit_unit_test.txt
 ```
