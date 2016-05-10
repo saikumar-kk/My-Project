@@ -53,9 +53,28 @@ The FitInfinite Admin portal has the following prerequisites. The following pack
 12. genpasswd 0.1.3
 13. hashids 1.0.2
 14. connect-flash 0.1.1
+
+```
+$ sudo apt-get update
+$ sudo apt-get install virtualbox 
+$ sudo apt-get install vagrant
+```
 15. ejs 2.4.1
+
+```
+$ vagrant box add fitinfinite-dev /path/to/the/new.box
+[...]
+$ vagrant init fitinfinite-dev
+[...]
+$ vagrant up
+```
+
 16. nodemailer 0.7.1
 
+```
+$ vagrant provisioning
+[...]
+```
 
 Steps to set up the FitInfinite solution
 ========================
