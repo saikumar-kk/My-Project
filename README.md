@@ -1,25 +1,27 @@
-FitInfinite App
+FitInfinite Solution
 ===============
 
 
 Introduction
-------------
+---------------
 
-FitInfinite is an on-demand sports and fitness marketplace for Professionals and Amateurs 
+FitInfinite is an on-demand sports and fitness marketplace for Professionals and Amateurs. Refer the Prdocuct Requirements document or the Software Requirements Specification for more the functionality of the solution. 
 
 
 Environment Details
--------------------
+--------------------------
 
 ### Supported Operating Systems
 
 Linux (Ubuntu-1x.xx)
 
 ### System Requirements
-Intel processor, 2GB RAM, 50GB HDD free Space.
+Intel processor (<min config here> or equivalent)
+2GB RAM, 
+50GB HDD free Space.
 
 ### Prerequisites
-The FitInfinite Admin portal has the following prerequisites. The following packages needs to be installed in the machine where we launch the FitInfinite AP web Application.
+The FitInfinite Admin portal has the following prerequisites. The following packages need to be installed where we host the FitInfinite solution.
 
 ### Software Requirements
 
@@ -37,25 +39,29 @@ The FitInfinite Admin portal has the following prerequisites. The following pack
 2. Postgres 9.5.x
 
 #### JAVA Script additional packages installed in vagrant (should be in dependency section of package.json)
-1. express 4.13.4
-2. epress-session 1.13.0
-3. passport 0.3.2
-4. passport-local 1.0.0
-5. pg 4.5.3
+1. express 4.13.4  
+2. epress-session 1.13.0  
+3. passport 0.3.2  
+4. passport-local 1.0.0  
+5. pg 4.5.3 
 6. sequelize 3.21.0
-7. sequelize-fixtures 0.5.1
+7. sequelize-cli 2.4.0
 8. uuid 2.0.2
 9. bcrypt 0.8.5
 10. body-parser 1.15.0
 11. morgon 1.7.0
-12. raml2html 2.4.0
+12. genpasswd 0.1.3
+13. hashids 1.0.2
+14. connect-flash 0.1.1
+15. ejs 2.4.1
+16. nodemailer 0.7.1
 
 
-Steps to launch FitInfinite APP
-===============================
+Steps to set up the FitInfinite solution
+========================
 
-System Prep
------------
+Environment Setup 
+------------------------
 
 1. Install software as root
 
@@ -75,18 +81,19 @@ $ vagrant init fitinfinite-dev
 $ vagrant up
 ```
 
-3. Install Software in newly created VM box by using ansible (vagrant provision)
-   (Update vagrant configuration file to ansible setup provision)
+3. Install Software in the newly created VM box by using ansible (vagrant provisioner)
+   (Update vagrant configuration file for ansible setup and provisioning)
 ```
-$ vagrant provision
+$ vagrant provisioning
 [...]
 ```
 
-App Setup
----------
+Solution Setup
+------------------
 
 
-1. As root, create a folder for your fitinfinite_app.  I chose `/vagrant/fitinfinite-app`.
+1. Connect vagrant vm's by using 'vagrant ssh'
+2. Create a folder for your fitinfinite_app.  I chose `/vagrant/fitinfinite-app`.
 ```
 $ mkdir -p /vagrant/fitinfinite_app
 $cd /vagrant/fitinfinite_app
@@ -109,7 +116,7 @@ $ git checkout v0.1.0-albha.100
 ```
 
 Database Setup
---------------
+-------------------
 
 
 4. Set up the database as root/postgres
@@ -121,6 +128,65 @@ postgres=# grant all on database fitinfinite to fitadmin;
 postgres=# \q
 $ exit
 ```
-5. Content updated
 
+5. Initial data setup [ DB migration using sequelize-cli tool] as follows
+```
+$ cd app/
+$ ../node_modules/sequelize-cli/bin/sequelize db:migrate
+[...]
+$ ../node_modules/sequelize-cli/bin/sequelize db:seed:all
+[...] 
+```
+6. Server startup
+```
+$ node server.js
+[...] 
+```
+
+Unit Test
+---------------
+
+We are using Mocha and Chai for unit test cases
+
+
+How to install Mocha and Chai?
+--------------------------------
+
+It's easy to install Mocha and Chai with the following commands:
+
+```
+$ npm install mocha --save-dev
+$ npm install chai --save-dev
+$ npm install supertest --save-dev
+```
+
+Structure
+---------------
+
+To set up the tests, create a new folder called “test” in the project root, then within that folder divide into admin and clientapp. Admin console unit tests will handle in admin and mobile client unit tests will handle in clientapp.
+
+    ├── app                   
+    ├── config                    
+    ├── raml                     
+    ├── test                    
+        ├── admin                   
+        ├── clientapp
+
+Steps for run mocha
+--------------------------------
+
+1. Go to project root
+```
+$ cd /vagrant/fitinfinite_app/
+```
+
+2. Run all test cases and extract results to file
+```
+$ mocha --recursive > fit_unit_test.txt
+```
+
+3. View results
+```
+$ vim fit_unit_test.txt
+```
 
