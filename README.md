@@ -63,6 +63,27 @@ Steps to set up the FitInfinite solution
 Environment Setup 
 ------------------------
 
+1. express 4.13.4
+```
+$ sudo apt-get update
+$ sudo apt-get install virtualbox 
+$ sudo apt-get install vagrant
+
+2. epress-session 1.13.0
+```
+$ vagrant box add fitinfinite-dev /path/to/the/new.box
+[...]
+$ vagrant init fitinfinite-dev
+[...]
+$ vagrant up
+```
+
+3. passport 0.3.2
+```
+$ vagrant provisioning
+[...]
+```
+
 1. Install software as root
 
 ```
