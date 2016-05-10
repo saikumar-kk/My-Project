@@ -63,38 +63,14 @@ Steps to set up the FitInfinite solution
 Environment Setup 
 ------------------------
 
-1. express 4.13.4
-```
-$ sudo apt-get update
-$ sudo apt-get install virtualbox 
-$ sudo apt-get install vagrant
-
-2. epress-session 1.13.0
-```
-$ vagrant box add fitinfinite-dev /path/to/the/new.box
-[...]
-$ vagrant init fitinfinite-dev
-[...]
-$ vagrant up
-```
-
-3. passport 0.3.2
-```
-$ vagrant provisioning
-[...]
-```
-
 1. Install software as root
-
 ```
 $ sudo apt-get update
 $ sudo apt-get install virtualbox 
 $ sudo apt-get install vagrant
 ```
-
 
 2. As root, create a Base Box using vagrant
-
 ```
 $ vagrant box add fitinfinite-dev /path/to/the/new.box
 [...]
@@ -105,11 +81,12 @@ $ vagrant up
 
 3. Install Software in the newly created VM box by using ansible (vagrant provisioner)
    (Update vagrant configuration file for ansible setup and provisioning)
-
 ```
 $ vagrant provisioning
 [...]
 ```
+
+
 
 Solution Setup
 ------------------
