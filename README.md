@@ -176,11 +176,13 @@ Steps for run mocha
 --------------------------------
 
 1. Go to project root
+
 ```
 $ cd /vagrant/fitinfinite_app/
 ```
 
 2. Run all test cases and extract results to file
+
 ```
 $ mocha --recursive > fit_unit_test.txt
 ```
